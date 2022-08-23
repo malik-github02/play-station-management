@@ -1,0 +1,369 @@
+:root {
+       --blue-color: #004174;
+       --red-color: #e31111;
+}
+* {
+       padding: 0;
+       margin: 0;
+       box-sizing: border-box;
+}
+body {
+       font-family: 'Roboto', sans-serif;
+}
+.sidebar {
+       background-color: #333;
+       color: #fff;
+       padding: 20px;
+       height: 100vh;
+       width: 200px;
+       position: fixed;
+       top: 0;
+       left: -200px;
+       transition: 0.3s;
+       z-index: 999999;
+}
+.sidebar.show {
+       left: 0;
+}
+.sidebar .nav {
+       list-style: none;
+       display: flex;
+       flex-direction: column;
+       gap: 30px;
+}
+.sidebar .nav .close {
+       color: var(--red-color);
+       text-align: right;
+       cursor: pointer;
+       padding: 10px;
+}
+.sidebar .nav li {
+       padding: 20px;
+}
+.device {
+       position: relative;
+       min-height: 100vh;
+       padding: 10px;
+       background: url('images/gamer.jpg') no-repeat fixed top center;
+       overflow: hidden;
+}
+.device .header {
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+       padding: 15px;
+       flex-wrap: wrap;
+}
+.device .header .bar {
+       width: 35px;
+       height: 35px;
+       background-color: var(--blue-color);
+       border-radius: 3px;
+       display: flex;
+       flex-direction: column;
+       justify-content: space-between;
+       padding: 7px;
+       cursor: pointer;
+       display: none;
+}
+@media (max-width: 767px) {
+       .device .header .bar {
+              display: flex;
+       }
+}
+.device .header .bar span {
+       display: block;
+       background-color: #fff;
+       height: 4px;
+       width: 100%;
+}
+.device .header .nav {
+       list-style: none;
+       color: #fff;
+       display: flex;
+       gap: 15px;
+}
+@media (max-width: 767px) {
+       .device .header .nav {
+              display: none;
+       }
+}
+.device .header .nav li {
+       padding: 20px;
+       font-size: 17px;
+}
+.device .header #add-device {
+       border: none;
+       outline: none;
+       background-color: var(--blue-color);
+       color: #fff;
+       border-radius: 3px;
+       padding: 10px 20px;
+       font-size: 30px;
+       display: flex;
+       margin-left: auto;
+       cursor: pointer;
+}
+.holder {
+       display: grid;
+       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+       gap: 20px;
+       padding-left: 20px;
+       padding-right: 20px;
+       margin-top: 20px;
+}
+.device #device {
+       background-color: #1f1f1f;
+       border-radius: 10px;
+       text-align: center;
+}
+.device #device h1 {
+       font-size: 40px;
+       width: 70px;
+       height: 70px;
+       margin: 10px auto 0;
+       background-color: #222;
+       border-radius: 50%;
+       border: 3px solid var(--blue-color);
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       color: #fff;
+}
+.device #device h3 {
+       font-size: 30px;
+       margin: 10px 0;
+       color: #fff;
+}
+.device #device .buttons {
+       border-top: 1px solid #ccc;
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+       gap: 15px;
+       padding: 10px;
+}
+.device #device .buttons #edit {
+       background-color: var(--blue-color);
+       border: none;
+       outline: none;
+       color: #fff;
+       padding: 10px 20px;
+       font-size: 19px;
+       border-radius: 5px;
+       cursor: pointer;
+}
+.device #device #available {
+       background-color: green;
+       border: none;
+       outline: none;
+       color: #fff;
+       padding: 10px 20px;
+       font-size: 19px;
+       border-radius: 5px;
+       cursor: pointer;
+}
+.device #device #unavailable {
+       background-color: var(--red-color);
+       border: none;
+       outline: none;
+       color: #fff;
+       padding: 10px 20px;
+       font-size: 19px;
+       border-radius: 5px;
+       cursor: pointer;
+       margin: auto;
+}
+.device #device .buttons #delete {
+       background-color: var(--red-color);
+       border: none;
+       outline: none;
+       color: #fff;
+       padding: 8px 16px;
+       font-size: 18px;
+       border-radius: 5px;
+       cursor: pointer;
+}
+
+.edit-popup,
+.delete-popup,
+.select-popup,
+.bills-popup {
+       position: fixed;
+       top: 0;
+       left: 0;
+       width: 100%;
+       height: 100%;
+       transform: translateY(100%);
+       transition: 0.3s;
+       z-index: 9999999;
+}
+.edit-popup.show,
+.delete-popup.show,
+.select-popup.show,
+.bills-popup.show {
+       transform: translateY(0);
+}
+.main-add,
+.main-delete,
+.main-select,
+.main-bill {
+       background-color: #222;
+       padding: 30px;
+       width: 500px;
+       max-width: 96%;
+       border-radius: 10px;
+       display: flex;
+       flex-direction: column;
+       gap: 10px;
+       position: absolute;
+       top: 50%;
+       left: 50%;
+       transform: translate(-50%, -50%);
+}
+.main-add .close,
+.main-select .close,
+.main-bill .close {
+       position: absolute;
+       top: 10px;
+       right: 10px;
+       font-weight: bold;
+       font-size: 20px;
+       color: var(--red-color);
+       cursor: pointer;
+}
+.main-add label {
+       font-size: 20px;
+       color: #fff;
+       font-weight: 700;
+}
+.main-add input {
+       background-color: transparent;
+       border: none;
+       outline: none;
+       border-bottom: 1px solid #004174;
+       margin-bottom: 30px;
+       padding: 7px;
+       font-size: 18px;
+       color: #fff;
+}
+.main-add #save-device {
+       display: flex;
+       width: fit-content;
+       margin-left: auto;
+       border: none;
+       outline: none;
+       background-color: var(--blue-color);
+       color: #fff;
+       padding: 10px 20px;
+       font-size: 20px;
+       border-radius: 4px;
+       cursor: pointer;
+}
+.main-delete {
+       width: 300px;
+       padding: 10px;
+}
+.main-delete img {
+       width: 100px;
+       margin: 0 auto 10px;
+}
+.main-delete p {
+       color: #fff;
+       text-align: center;
+       font-size: 20px;
+       margin-bottom: 10px;
+}
+.main-delete .buttons {
+       border-top: 1px solid #ccc;
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+       gap: 15px;
+       padding: 10px;
+}
+.main-delete .buttons #cancel {
+       background-color: #fff;
+       border: none;
+       outline: none;
+       color: #222;
+       padding: 8px 16px;
+       font-size: 18px;
+       border-radius: 5px;
+       cursor: pointer;
+}
+.main-delete .buttons #sure-delete {
+       background-color: var(--red-color);
+       border: none;
+       outline: none;
+       color: #fff;
+       padding: 8px 16px;
+       font-size: 18px;
+       border-radius: 5px;
+       cursor: pointer;
+}
+.main-select {
+       width: 400px;
+       text-align: center;
+}
+.main-select h3 {
+       color: #fff;
+       font-size: 25px;
+       margin: 20px 0;
+}
+.main-select #save {
+       border: none;
+       outline: none;
+       background-color: var(--blue-color);
+       color: #fff;
+       border-radius: 3px;
+       padding: 10px 20px;
+       font-size: 18px;
+       display: flex;
+       margin-left: auto;
+       margin-top: 20px;
+       cursor: pointer;
+}
+.josticks,
+.number {
+       background-color: #222;
+       border: 5px solid #222;
+       outline: none;
+       margin: 0;
+       -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+       box-sizing: border-box;
+       -webkit-appearance: none;
+       -moz-appearance: none;
+       color: #fff;
+       border: thin solid #444;
+       border-radius: 4px;
+       display: inline-block;
+       font: inherit;
+       line-height: 1.5em;
+       padding: 0.5em 3.5em 0.5em 1em;
+       background-image: linear-gradient(45deg, transparent 50%, #fff 50%),
+              linear-gradient(135deg, #fff 50%, transparent 50%),
+              linear-gradient(to right, #333, #333);
+       background-position: calc(100% - 20px) calc(1em + 2px),
+              calc(100% - 15px) calc(1em + 2px), 100% 0;
+       background-size: 5px 5px, 5px 5px, 2.5em 2.5em;
+       background-repeat: no-repeat;
+}
+.main-bill h3 {
+       color: #fff;
+       margin: 10px 0;
+}
+.main-bill label {
+       color: #fff;
+       margin-top: 10px;
+}
+.main-bill #price {
+       background-color: transparent;
+       border: none;
+       outline: none;
+       border-bottom: 1px solid #004174;
+       padding: 7px;
+       font-size: 18px;
+       color: #fff;
+}

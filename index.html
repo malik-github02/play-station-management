@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <title>play station</title>
+</head>
+
+<body>
+    <div class="sidebar">
+
+        <ul class="nav">
+            <span class="close">X</span>
+            <li>Home</li>
+            <li>Available</li>
+            <li>Not Available</li>
+            <li class="bills">Bills</li>
+            <li>Login</li>
+            <li>Register</li>
+        </ul>
+    </div>
+    <div class="device">
+        <div class="header">
+            <div class="bar">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav">
+                <li>Home</li>
+                <li>Available</li>
+                <li>Not Available</li>
+                <li class="bills">Bills</li>
+                <li>Login</li>
+                <li>Register</li>
+            </ul>
+            <button id="add-device">Add Device</button>
+        </div>
+        <div class="holder">
+
+            <div id="device">
+                <h1>1</h1>
+                <h3>Ps5</h3>
+                <div class="buttons">
+                    <button id="edit">Edit</button>
+                    <button id="available">Available</button>
+                    <button id="delete">Delete</button>
+                </div>
+            </div>
+            <div id="device">
+                <h1>1</h1>
+                <h3>Ps5</h3>
+                <div class="buttons">
+                    <button id="unavailable">UnAvailable</button>
+                </div>
+            </div>
+        </div>
+        <div class="edit-popup">
+            <div class="main-add">
+                <span class="close">X</span>
+                <label for="device-type">Number Of Device</label>
+                <input type="text" id="device-type" placeholder="1 , 2 ...">
+                <label for="device-type">Type Of Device</label>
+                <input type="text" id="device-type" placeholder="ps4 , ps5 ...">
+                <button id="save-device">Save Device</button>
+            </div>
+        </div>
+        <div class="delete-popup">
+            <div class="main-delete">
+                <img src="images/pngwing.com (1).png" alt="delete">
+                <p>Are You Sure You Want To Delete This Device?</p>
+                <div class="buttons">
+                    <button id="cancel">cancel</button>
+                    <button id="sure-delete">delete</button>
+                </div>
+            </div>
+        </div>
+        <div class="select-popup">
+            <div class="main-select">
+                <span class="close">X</span>
+                <h3>Select Number Of Josticks</h3>
+                <select class="josticks">
+                    <option value="0">Select Number Of Josticks</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+                <button id="save">Save</button>
+            </div>
+        </div>
+        <div class="bills-popup">
+            <div class="main-bill">
+                <span class="close">X</span>
+                <h3>Select Number Of Device</h3>
+                <select class="josticks">
+                    <option value="0">Select Number Of Josticks</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+                <h3>Select Number Of Josticks</h3>
+                <select class="number">
+                    <option value="0">Select Number Of Josticks</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+                <label>Price</label>
+                <input type="number" id="price" placeholder="Enter Price">
+            </div>
+
+        </div>
+
+        <script src="main.js"></script>
+</body>
+
+</html>
